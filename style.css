@@ -1,0 +1,285 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+:root {
+    /* dark mode */
+    --main-hue: #0005ff;
+    --cta: #bbd0ff; /* choose color in the upper-left quadrant */
+    --primary-text: #ffffff; /* 0% */
+    --secundary-text: #cfd2d6; /* 20% */
+    --tertiary-text: #acb1b8; /* 35% */
+    --accent: #666d7a; /* 65% */
+    --bg-card: #1e293c; /* 95% */
+    --bg: #131f33; /* 100%,  choose 15% away from the bottom */
+    /* size */
+    --full-height: 100vh;
+    --full-width: 100vw;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.app {
+    background: var(--bg);
+    height: var(--full-height);
+    width: var(--full-width);
+}
+
+.app-title {
+    font-size: 1.25rem;
+    font-weight: 400;
+}
+
+header {
+    color: var(--secundary-text);
+    height: calc(var(--full-height) - 90vh);
+    width: var(--full-width);
+}
+
+.container {
+    color: var(--primary-text);
+    height: calc(var(--full-height) - 20vh);
+    width: calc(var(--full-width) - 10vh);
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-rows: 200px auto;
+    grid-auto-flow: dense;
+    padding: 0 10vw;
+    width: 100%;
+}
+
+.container__row {
+    padding: 2.5vh 0;
+}
+
+.container__stats {
+    background: var(--bg-card);
+    border: 1px solid var(--accent);
+    align-items: stretch;
+    display: flex;
+    justify-content: stretch;
+    flex-direction: column;
+    padding: 1rem;
+    width: 100%;
+}
+
+.container__stats .stats-title {
+    font-size: 1.5rem;
+}
+
+.container__stats .stats__player{
+    padding: .5rem 0;
+}
+
+.container__stats .playername {
+    font-size: 1rem;
+    padding: .25rem 0;
+}
+
+.container__stats .playerwinloses {
+    font-size: .8rem;
+}
+
+.container__boxgame {
+    padding: 1rem;
+    align-items: center;
+    display: flex;
+    justify-content:center;
+    flex-direction: column;
+}
+
+.container__game {
+    --remaining-space-width: calc((100% / 3) - .3rem);
+    --remaining-space-height: calc((100% / 3) - .3rem);
+    background: var(--bg-card);
+    box-shadow: 0 22px 40px rgba(0, 0, 0, 0.3);
+    padding: 1rem; 
+    display: grid;
+    grid-gap: .5rem;
+    grid-template-columns: var(--remaining-space-width) var(--remaining-space-width) var(--remaining-space-width);
+    grid-template-rows: var(--remaining-space-height) var(--remaining-space-height) var(--remaining-space-height);
+    grid-auto-flow: dense dense;
+    height: 100%;
+    width: 100%;
+}
+
+.slot {
+    background: var(--secundary-text);
+    align-items: center;
+    display: flex;
+    justify-content:center;
+    height: 100%;
+    width: 100%;
+}
+
+.circle {
+    background: transparent;
+    border-radius: 50%;
+    border: .5rem solid var(--bg-card);
+    height: 50%;
+    width: 50%;
+}
+
+.cross {
+    background: var(--bg-card);
+    height: .5rem;
+    width: 50%;
+    transform: rotate(45deg);
+}
+
+.cross:before {
+    content: '';
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    background: var(--bg-card);
+    border-radius: 5%;
+    height: 100%;
+    width: 100%;
+    transform: rotate(90deg);
+}
+
+
+footer {
+    color: var(--tertiary-text);
+    height: calc(var(--full-height) - 90vh);
+    width: var(--full-width);
+}
+
+.w100 {
+    width: 100%;
+}
+
+.d-flex{
+    display: flex;
+}
+
+.aling-items__center {
+    align-items: center;
+}
+
+.justify-content__center {
+    justify-content: center;
+}
+
+.flex-direction__column {
+    flex-direction: column;
+}
+
+.btn {
+    border: none;
+    border-radius: .25rem;
+    cursor: pointer;
+    padding: .5rem .5rem;
+    height: 2.5rem;
+    min-width: 8rem;
+}
+
+.btn:hover{
+    filter: brightness(.8);
+}
+
+.btn-primary {
+    background: var(--cta);
+}
+
+
+@media (min-width: 640px) {
+    .container {
+        grid-template-columns: auto;
+        grid-template-rows: 200px auto;
+        grid-auto-flow: dense;
+        padding: 0 10vw;
+        width: 100%;
+    }
+
+    .container__boxgame {
+        padding: 1rem 10vw;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        width: 80%;
+    }
+
+    .container__stats {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .container__stats .stats-title {
+        flex-basis: 100%;
+        padding: 1rem;
+    }
+    
+    .container__stats .stats__player{
+        flex-basis: 50%;
+        padding: 1rem;
+    }
+
+    .container__boxgame .playerturn {
+        font-size: 1.5rem;
+    }
+
+    .container__game {
+        height: 60%;
+        width: 100%;
+    }
+}
+
+@media (min-width: 1024px) {
+    .container__boxgame .playerturn {
+        font-size: 2rem;
+    }
+}
+
+@media (min-width: 1280px) {
+    .container {
+        grid-template-columns: 20rem auto;
+        grid-template-rows: auto;
+        grid-auto-flow: dense;
+        padding: 0 10vw;
+        width: 80%;
+    }
+
+    .container__stats {
+        align-items: flex-start;
+        justify-content: flex-start;
+        flex-direction: column;
+        flex-wrap: nowrap;
+    }
+
+    .container__stats .stats-title {
+        flex-basis: 0%;
+        font-size: 2rem;
+        width: 100%;
+    }
+
+    .container__stats .stats__player {
+        flex-basis: 0%;
+        width: 100%;
+    }
+
+    .container__stats .playername {
+        font-size: 1.2rem;
+        padding: .25rem 0;
+    }
+    
+    .container__stats .playerwinloses {
+        font-size: 1rem;
+        padding: .25rem 0;
+    }
+
+    .container__game {
+        height: 60%;
+        width: 100%;
+    }
+}
